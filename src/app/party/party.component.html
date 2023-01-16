@@ -1,0 +1,81 @@
+
+<section  id="service" class="section pt-0">
+  <nav class="navbar custom-navbar navbar-expand-md navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
+    <div class="container">
+        <a class="navbar-brand" >
+            <img src="assets/imgs/logo.png">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">                     
+          
+                <li class="nav-item" >
+                  <button class="btn " (click)="gotoRegister()"><img src="assets/imgs/profile.png" class= "imgprof">
+                <a *ngIf="isloggedIn" class="nav-link" (click)="logout()" >logout</a>
+            </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+  <br>
+  <br>
+  <h1 class="text-center" style="color: orangered;"> Choose your {{party}} theme</h1>
+    <br><br>
+  <div class="container" style="background-color: rgb(0, 0, 0);">
+      <div class="row" style="background-color: rgb(0, 0, 0);">
+          <div class="col-md-4" *ngFor ="let event of events; index as i"  style="background-color: rgb(0, 0, 0);">
+              <div class="card mb-4 mb-md-0" style="background-color: rgb(0, 0, 0);" >
+                  <img [src]="event.img" alt="" class=" mt-3 shadow-sm" style="height: 250px">
+                  <br>
+                  <br>
+                  <div class="text-center text-white" (click)="goto(i)"> <h6 >{{event.theme_name}}</h6>
+                  <h6>cost: {{event.cost}}</h6>
+                  </div>
+         
+                </div>
+        </div>
+        
+          </div>              
+      
+  </div>
+  <div *ngIf="!clicked" class="col-md-6 offset-md-3 mt-5 text-right" style="background-color: black;"  >
+    <img src="assets/imgs/home.png" height="30px" >
+    <a routerLink="../home" class="btn btn-link">Return to Home Page</a>
+  </div>
+ 
+<!-- End OF Service Section -->
+</section>
+
+
+<section  style="background-color: black;"*ngIf="clicked">
+  <div class="container" style="background-color: rgb(0, 0, 0);">
+    <div class="row" style="background-color: rgb(0, 0, 0);">
+        <div class="col-md-4" *ngFor ="let el of theme_elements;" style="background-color: rgb(0, 0, 0);">
+            <div class="card mb-4 mb-md-0" style="background-color: rgb(0, 0, 0);" >
+                <img [src]="el" alt="" class=" mt-3 shadow-sm" style="height: 250px">
+                <br>
+                
+       <br>
+              </div>
+      </div>
+      
+        </div>  
+        
+          <div class="card mb-4 mb-md-0" style="background-color: rgb(0, 0, 0);" >
+            <button style="background-color: orangered ; color:white; height: 50px;;"> Order Now </button>
+              
+     <br>
+            </div>
+          
+    
+</div>
+<div class="col-md-6 offset-md-3 mt-5 text-right" style="background-color: black;">
+  <img src="assets/imgs/home.png" height="30px" >
+  <a routerLink="../../home" class="btn btn-link">Return to Home Page</a>
+</div>
+
+</section>
+
