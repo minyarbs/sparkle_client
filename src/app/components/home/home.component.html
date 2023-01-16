@@ -139,7 +139,7 @@
                 <p></p>
             </div>
             <div class="col-md-7">
-                <form>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <h4 class="mb-4">Drop Us A Line</h4>
                     <div class="form-row">
                         <div class="form-group col-sm-4">

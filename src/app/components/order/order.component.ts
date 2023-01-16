@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -17,13 +18,14 @@ export class OrderComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
+        private service:OrderService
     ) { }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
             date: ['', Validators.required],
             location: ['', Validators.required],
-            payment: ['cash,online', Validators.required]
+            payment: ['', Validators.required]
         });
     }
 
@@ -31,7 +33,7 @@ export class OrderComponent implements OnInit {
     get f() { return this.form.controls; }
 
     onSubmit() {
-        
+       this.service.submitorder()
     }
 
 }
