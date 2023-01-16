@@ -57,7 +57,9 @@ logout(){
   this.auth.logout();
  
 }
-
+order(){
+  this.route.navigate(['../order'])
+}
 
 }
 

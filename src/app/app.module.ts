@@ -9,7 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { PartyComponent } from './party/party.component';
-import{HttpClientModule} from '@angular/common/http'
+import{HttpClientModule} from '@angular/common/http';
+import { OrderComponent } from './components/order/order.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import{HttpClientModule} from '@angular/common/http'
     HomeComponent,
     LoginComponent,
     PartyComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
