@@ -142,18 +142,12 @@
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <h4 class="mb-4">Drop Us A Line</h4>
                     <div class="form-row">
-                        <div class="form-group col-sm-4">
-                            <input type="text" class="form-control text-white rounded-0 bg-transparent" name="name" placeholder="Name">
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <input type="email" class="form-control text-white rounded-0 bg-transparent" name="Email" placeholder="Email">
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <input type="text" class="form-control text-white rounded-0 bg-transparent" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group col-12">
-                            <textarea name="message" id="" cols="30" rows="4" class="form-control text-white rounded-0 bg-transparent" placeholder="Message"></textarea>
-
+                        
+                        
+                        <div class="form-group">
+                            <label for="message"></label>
+                            <input type="text" formControlName="message" class="form-control"  />
+                            
                         </div>
                         <div class="form-group col-12 mb-0">
                             <button type="submit" class="btn btn-primary rounded w-md mt-3">Send</button>

@@ -15,13 +15,13 @@ constructor(private http :HttpClient) {
    
   }
 
-getEvents(party:string){
+getEvents(){
   this.events=[]
-  return  this.http.get<{[key: string]: Themes}>('http://localhost:3000/products/'+party)
+  return  this.http.get<{[key: string]: Themes}>('http://localhost:3000/products')
   .pipe(map((res)=>{
     for(const key in res){
       if(res.hasOwnProperty(key)){
-      this.events.push({...res[key], id:key})
+      this.events.push({...res[key], _id:key})
      
     } 
    

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,7 +8,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(
-    public route:Router
+    public route:Router,
+    private http:HttpClient
   ) { }
   login(){
 localStorage.setItem('loggedIn','true')
@@ -26,7 +28,8 @@ localStorage.removeItem('loggedIn')
     }
   }
 
-  register(){
-
+  register(username:string,email:string,password:string){
+    const res= this.http.post('http://localhost:3000/account',{"UserName":username,"Password":password,"Email":email})
+    return res
   }
 }

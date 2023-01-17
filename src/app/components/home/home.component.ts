@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {  NavigationEnd, Router, RouterEvent } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ReviewService } from 'src/app/services/review.service';
 
@@ -28,9 +28,7 @@ isloggedIn:boolean=this.auth.isloggedin;
       this.refresh();
     });
     this.form = this.formBuilder.group({
-      name: [''],
-      email: [''],
-      subject: ['', Validators.required],
+      
       message:['',Validators.required]
   });
   }
@@ -48,7 +46,8 @@ gotoParty(name: string){
   this.router.navigate(['../party/'+name]);
 }
 
-onSubmit(){
-this.service.submitReview(this.form.value.name)
+async onSubmit(){
+await lastValueFrom(this.service.submitReview(this.form.value.message))
+this.form.reset()
 }
 }

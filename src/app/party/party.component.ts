@@ -24,17 +24,18 @@ clicked =false;
 
  async ngOnInit() {
     this.party=this.activatedroute.snapshot.paramMap.get('partyname');
+    this.party=this.party.toLowerCase()
     this.getEvents(this.party)
    
   }
 async getEvents(party:string) {
   this.events=[]
-    await lastValueFrom(this.service.getEvents(party))
+    await lastValueFrom(this.service.getEvents())
     this.events=this.service.events
     for (let i =0 ; i< this.events.length;i++){
       const theme_name=this.events[i].theme_name
       
-    const imgSingle='../assets/imgs/'+party.toLowerCase()+' '+theme_name+ ' deco.jpg';
+    const imgSingle='../assets/imgs/'+party+' '+theme_name+ ' deco.jpg';
   this.events[i].img=imgSingle
   }
 
@@ -45,7 +46,7 @@ goto(num:number){
 const theme_name= this.events[num].theme_name;
   for(let i=0 ; i<5;i++){
     
-    const imgSingle='../assets/imgs/'+this.party.toLowerCase()+' '+theme_name+ ' '+this.elements[i]+'.jpg';
+    const imgSingle='../assets/imgs/'+this.party+' '+theme_name+ ' '+this.elements[i]+'.jpg';
     console.log(imgSingle)
     this.theme_elements.push(imgSingle)
   }

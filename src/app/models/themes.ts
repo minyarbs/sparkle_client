@@ -1,8 +1,9 @@
 export class Themes{
-  public id :string;
-   public theme_name: string;
-   public party_type:string; 
-   public cost: number;
-   public img:string;
+   id :number;
+   _id:string
+    theme_name: string;
+    party_type:string; 
+    cost: number;
+    img:string;
 
 }
